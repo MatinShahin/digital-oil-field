@@ -206,20 +206,6 @@ You can also open `index.html` directly from disk.
 
 ---
 
-## 🌐 Deployment
-
-The repository ships with a GitHub Actions workflow that publishes the site on every push to `main`.
-
-1. Create a public repository named `digital-oil-field` under [github.com/MatinShahin](https://github.com/MatinShahin) and push this folder to it.
-2. Go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
-3. Wait for the **Deploy to GitHub Pages** workflow to finish (about 1 minute).
-4. Your twin is live at `https://MatinShahin.github.io/digital-oil-field/`.
-
-> **Social previews:** `index.html` already points `og:image` at `https://matinshahin.github.io/digital-oil-field/assets/preview.jpg`. If you rename the repository, update that URL.
-
-The site is fully static, so it also deploys unchanged to Netlify, Vercel, Cloudflare Pages or any web server.
-
----
 
 ## 🛠 Customisation
 
