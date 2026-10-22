@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Oil Field 3D</title>
+<meta name="description" content="Real-time 3D digital twin of an oil field: wells, facilities, reservoir and an AI optimiser. Developed by Matin Shahin.">
+<meta name="author" content="Matin Shahin">
+<meta property="og:title" content="Digital Oil Field · 3D Twin">
+<meta property="og:description" content="Orbit a producing oil field, X-ray the reservoir, take every machine apart and let AI fix a failing pump.">
+<meta property="og:image" content="https://matinshahin.github.io/digital-oil-field/assets/preview.jpg">
+<meta property="og:url" content="https://matinshahin.github.io/digital-oil-field/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/matin-shahin.jpg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="head">
+    <div><h1>Digital Oil Field · 3D Twin</h1><p>A live, orbitable model of a producing field: surface facilities, wells, and the reservoir underneath, driven by one production model over 15 years.</p></div>
+    <div class="who"><span class="credit">Developed by Matin Shahin<small>AI Entrepreneur · Principal Applied AI Research Engineer</small></span><img src="assets/matin-shahin.jpg" alt="" width="40" height="40"></div>
+  </div>
+  <div class="main">
+    <div class="stage" id="stage">
+      <div class="labels" id="labels"></div>
+      <div class="hud tl"><span class="tag" id="tag">Field view</span><span style="color:var(--muted)">Drag to orbit · scroll or pinch to zoom · click any machine, then Take apart</span></div>
+      <div class="hud tr">
+        <div class="chip"><span>Oil</span><b id="k-oil">0<i>bbl/d</i></b></div>
+        <div class="chip"><span>Gas</span><b id="k-gas">0<i>MMscf/d</i></b></div>
+        <div class="chip"><span>Water cut</span><b id="k-wc">0<i>%</i></b></div>
+        <div class="chip"><span>Injection</span><b id="k-inj">0<i>bbl/d</i></b></div>
+      </div>
+      <div class="views">
+        <button class="btn" data-view="field" aria-pressed="true">Field</button>
+        <button class="btn" data-view="sub" aria-pressed="false">Subsurface</button>
+        <button class="btn" data-view="fac" aria-pressed="false">Facilities</button>
+        <button class="btn" data-view="well" aria-pressed="false">Pumpjacks</button>
+      </div>
+    </div>
+    <aside class="side" id="side">
+      <span class="kind" id="s-kind">Field</span>
+      <h2 id="s-name">Field overview</h2>
+      <div class="kv" id="s-kv"></div>
+      <svg class="spark" id="s-spark" viewBox="0 0 200 56" preserveAspectRatio="none" aria-hidden="true"><path class="wl" id="s-wl"/><path class="ln" id="s-ln"/><path class="cur" id="s-cur"/></svg>
+      <div class="ai-box" id="s-ai"><b id="s-ai-t">AI · field optimiser</b><p id="s-ai-p">Watching 6 wells.</p></div>
+      <button class="btn ai" id="optimise">Apply AI optimisation</button>
+      <div class="pw" id="s-parts-wrap" hidden><div class="pw-h"><span class="kind">Components</span><button class="btn" id="explode" aria-pressed="false">Take apart</button></div><ol class="plist" id="s-parts"></ol><p class="pdesc" id="s-pdesc">Hover or tap a component to see what it does.</p></div>
+    </aside>
+  </div>
+  <div class="time">
+    <div class="trow"><label for="year">Field life</label><button class="btn" id="play" aria-pressed="true">Pause</button><input type="range" id="year" min="0" max="15" step="0.05" value="0"><output id="year-o">Year 0.0</output></div>
+    <svg class="chart" id="chart" viewBox="0 0 600 110" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="legend"><span><i style="border-color:var(--oil)"></i>Field oil</span><span><i style="border-color:var(--water)"></i>Water cut</span><span><i style="border-color:var(--ai);border-top-style:dashed"></i>With AI optimisation</span></div>
+    <div class="toggles">
+      <button class="btn" id="t-xray" aria-pressed="true">X-ray ground</button>
+      <button class="btn" id="t-flow" aria-pressed="true">Flow</button>
+      <button class="btn" id="t-labels" aria-pressed="true">Labels</button>
+      <button class="btn" id="t-rot" aria-pressed="false">Auto-rotate</button>
+    </div>
+  </div>
+  <p class="cap">Six wells drain one sandstone reservoir 2,300 m down: three beam pumps, two electric submersible pumps (one horizontal), and a water injector whose flood front sweeps oil toward the producers. Each producer declines at 12% a year; water breaks through when the front reaches it, so water cut climbs while oil falls. Fluids run through the manifold to a three-phase separator: oil to the tank farm and export line, gas to sales with a small flare, produced water back to injection. The AI optimiser rebalances chokes and injection and slows the ESP whose vibration is climbing. Model and data are illustrative.</p>
+<section class="dev" aria-label="Developer">
+    <img class="dev-img" src="assets/matin-shahin.jpg" alt="Portrait of Matin Shahin" width="96" height="96">
+    <div class="dev-txt">
+      <span class="dev-k">Developed by</span>
+      <strong class="dev-n">Matin Shahin</strong>
+      <span class="dev-r">AI Entrepreneur · Principal Applied AI Research Engineer</span>
+      <span class="dev-m"><span id="dev-mail">matin.shahin97@gmail.com</span><button type="button" class="btn" id="dev-copy">Copy email</button></span>
+    </div>
+  </section>
+  <section class="more" aria-label="More figures">
+    <span class="dev-k">More interactive figures</span>
+    <div class="more-l">
+      <a href="figures/digital-wellhead.html">Digital wellhead and flare</a>
+      <a href="figures/esp-ai-digital-twin.html">ESP AI predictive maintenance</a>
+      <a href="figures/hydrogen-salt-cavern.html">Hydrogen salt cavern</a>
+      <a href="figures/co2-storage.html">CO₂ storage aquifer</a>
+    </div>
+  </section>
+  <div class="foot"><span>Energy anatomy · digital oil field · built with <a href="https://github.com/wheresryan22/anatomy" style="color:inherit">Anatomy</a> and three.js</span><b>Developed by Matin Shahin</b></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
